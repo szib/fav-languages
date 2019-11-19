@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useDebounce } from 'use-debounce';
 
 import getRepos from './getRepos';
 import getLanguages from './getLanguages';
@@ -24,9 +25,10 @@ const callAPI = async username => {
   }
 };
 
-export const useGithubLangs = username => {
+export const useGithubLangs = (username, delay = 1000) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
+  const [debouncedUsername] = useDebounce(username, delay);
 
   useEffect(() => {
     setLoading(true);
@@ -37,8 +39,8 @@ export const useGithubLangs = username => {
       setLoading(false);
     };
 
-    asyncFn(username);
-  }, [username]);
+    if (debouncedUsername) asyncFn(debouncedUsername);
+  }, [debouncedUsername]);
 
   return { loading, data };
 };
