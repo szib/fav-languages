@@ -6,6 +6,7 @@ import tw from 'tailwind.macro';
 import useGithubLangs from './hooks/useGithubLangs';
 import SearchBar from './components/SearchBar';
 import FavouriteLang from './components/FavouriteLang';
+import List from './components/List';
 
 const Page = styled.div`
   ${tw`flex-1`}
@@ -22,6 +23,7 @@ function App() {
     <Page>
       <SearchBar username={username} onChangeHandler={setUsername} />
       <FavouriteLang api={api} />
+      <List data={api.data} />
     </Page>
   );
 }
