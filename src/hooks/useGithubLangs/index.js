@@ -32,9 +32,12 @@ export const useGithubLangs = (username, delay = 1000) => {
   const [debouncedUsername] = useDebounce(username, delay);
 
   useEffect(() => {
-    setLoading(true);
+    setData({});
+  }, [username]);
 
+  useEffect(() => {
     const asyncFn = async username => {
+      setLoading(true);
       const langs = await callAPI(username);
       setData(langs);
       setLoading(false);
