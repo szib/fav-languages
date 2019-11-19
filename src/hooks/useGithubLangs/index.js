@@ -12,6 +12,7 @@ const callAPI = async username => {
     const languages = await getLanguages(username, repos);
     const summary = sumLanguages(languages);
     return {
+      username,
       languages: summary,
       favoriteLanguage: favorite(summary)
     };
