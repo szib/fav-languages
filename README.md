@@ -1,3 +1,25 @@
+# GITHUB-FAV-LANG
+
+Gives a best guess of the arbitraty Github user's favourite programming language.
+
+## Usage
+
+### Authentication
+
+You will need a personal access token from Github.
+
+1. You can create [personal access tokens](https://github.com/settings/tokens) in your account’s developer settings
+2. Create a `.env` file in the project's root folder.
+3. Save the token as `REACT_APP_GITHUB_AUTH`
+
+```
+REACT_APP_GITHUB_AUTH=<YOUR TOKEN>
+```
+
+Run `npm install`, then `npm start`
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
